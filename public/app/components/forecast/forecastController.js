@@ -1,27 +1,15 @@
-thor.controller('forecastController', ['$scope', '$http', '$routeParams', '$log', 'cityService', function($scope, $http, $routeParams, $log, cityService) {
+thor.controller('forecastController', ['$scope', '$routeParams', '$log', 'cityService', 'weatherService', function($scope, $routeParams, $log, cityService, weatherService) {
 
 	$scope.city = cityService.city;
 
 	$scope.days = $routeParams.days || '5';
 
-	var req = {
-		method: 'POST',
-		url: 'http://localhost:3000/weather',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		data: {
-			q: $scope.city,
-			cnt: $scope.days
-		}
-	};
-
 	$scope.loading = true;
 	$scope.error = false;
-	$http(req).then(function(data){
+	weatherService.getWeather($scope.city, $scope.days).then(function(data) {
 		$scope.loading = false;
 		$scope.weatherResult = data.data;
-	}, function(){
+	}, function() {
 		$scope.loading = false;
 		$scope.error = true;
 		$log.error('There was an error.');
