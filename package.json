@@ -1,0 +1,24 @@
+{
+  "name": "thor",
+  "version": "1.0.0",
+  "description": "A weather app using AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aluppino/thor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aluppino/thor/issues"
+  },
+  "homepage": "https://github.com/aluppino/thor#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "request": "^2.70.0"
+  }
+}
