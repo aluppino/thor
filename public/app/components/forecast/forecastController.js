@@ -17,10 +17,13 @@ thor.controller('forecastController', ['$scope', '$http', '$routeParams', '$log'
 	};
 
 	$scope.loading = true;
+	$scope.error = false;
 	$http(req).then(function(data){
 		$scope.loading = false;
 		$scope.weatherResult = data.data;
 	}, function(){
+		$scope.loading = false;
+		$scope.error = true;
 		$log.error('There was an error.');
 	});
 
